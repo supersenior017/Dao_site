@@ -55,7 +55,7 @@ const Brand = () => (
               <div style={{ display: "inline", position: "relative" }}>
                 <Image style={{ height: "30px", display: "inline", position: "absolute", top: "0px", left: "0px" }} src="/brand2-1.png" />efee
               </div>
-              BRAND</p>
+              <span style={{ fontSize: "38px", paddingTop: "-10px" }}>B</span>RAND</p>
             <p className="big bold">~What does it mean to you?~</p>
             <p className="small bold" style={{ textAlign: "left" }}>The&nbsp;
               <Image style={{ height: "30px", width: "auto", display: "inline", marginTop: "-10px" }} src="/daoscience.jpg" />
