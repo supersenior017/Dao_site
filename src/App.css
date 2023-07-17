@@ -1,0 +1,114 @@
+body {
+  color: rgb(0, 0, 0);
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: grayscale;
+  font-family:Arial, Helvetica, sans-serif!important;
+}
+
+.ui.inverted.pointing.menu .active.item:after {
+  background-color: white !important;
+}
+
+/* blockquote styles comes from bootstrap */
+blockquote {
+  padding: 0.6rem 1rem 0.4rem;
+  margin: 0 0 0.8rem;
+  border-left: 5px solid #eeeeee;
+}
+blockquote p {
+  line-height: 1.2rem;
+  margin-bottom: 0.3rem;
+  text-align: start !important;
+}
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+blockquote ul:last-child,
+blockquote ol:last-child {
+  margin-bottom: 0;
+}
+blockquote footer,
+blockquote small,
+blockquote .small {
+  margin-bottom: 0.5rem;
+  display: block;
+  font-size: 80%;
+  line-height: 1.42857;
+  color: #000000;
+  padding: 0;
+}
+blockquote footer:before,
+blockquote small:before,
+blockquote .small:before {
+  content: "— ";
+}
+blockquote cite:before {
+  content: "«";
+}
+blockquote cite:after {
+  content: "»";
+}
+
+.small{
+  font-size: 20px;
+}
+
+.big{
+  font-size: 28px;
+}
+
+
+.sbig{
+  font-size: 32px;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.yellow{
+  background-color: rgb(254,248,4);
+}
+
+.inline{
+  display: inline;
+}
+
+.list-text{
+  margin-left: 30px;
+}
+
+.underline{
+  display: inline;
+  text-decoration: underline;
+  text-decoration-skip-ink:none;
+}
+.chinese-text{
+  font-size: 44px;
+  font-weight: bold;
+  display: inline;
+  font-family: 'Ma Shan Zheng', cursive;
+}
+.fl4big{
+  font-size: "34px"!important;
+  padding-top: "-10px"!important; 
+}
+
+.close2top{
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+.far2top{
+  margin-top: 10px;
+}
+
+.close2bottom{
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+
+.far2bottom{
+  margin-bottom: 10px;
+}
