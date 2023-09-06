@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import "semantic-ui-css/semantic.min.css";
-import { BrowserRouter as useNavigate, Link } from 'react-router-dom';
+import {  Link } from 'react-router-dom';
 import {
   Container,
   Sidebar,
@@ -40,13 +40,13 @@ const DesktopContainer = ({ children }) => {
           >
             <Container>
               <Link to="/">
-                <Menu.Item as="a">STORE</Menu.Item>
+                <Menu.Item >STORE</Menu.Item>
               </Link>
               <Link to="/brand">
-                <Menu.Item as="a">BRAND</Menu.Item>
+                <Menu.Item >BRAND</Menu.Item>
               </Link>
               <Link to="/contract">
-                <Menu.Item as="a">CONTACT</Menu.Item>
+                <Menu.Item >CONTACT</Menu.Item>
               </Link>
             </Container>
           </Menu>
@@ -82,13 +82,13 @@ const MobileContainer = ({ children }) => {
           visible={sidebarOpened}
         >
           <Link to="/">
-            <Menu.Item as="a" onClick={() => { handleToggle() }}>STORE</Menu.Item>
+            <div className="mobile-list" onClick={() => { handleToggle() }}>STORE</div>
           </Link>
           <Link to="/brand">
-            <Menu.Item as="a" onClick={() => { handleToggle() }}>BRAND</Menu.Item>
+            <div className="mobile-list" onClick={() => { handleToggle() }}>BRAND</div>
           </Link>
           <Link to="/contract">
-            <Menu.Item as="a" onClick={() => { handleToggle() }}>CONTACT</Menu.Item>
+            <div className="mobile-list" onClick={() => { handleToggle() }}>CONTACT</div>
           </Link>
         </Sidebar>
         <Sidebar.Pusher
@@ -96,7 +96,7 @@ const MobileContainer = ({ children }) => {
           onClick={handlePusherClick}
           style={{ minHeight: "100vh" }}
         >
-          <Segment inverted textAlign="center" vertical class="sticky" >
+          <Segment inverted textAlign="center" vertical className="sticky" >
             <Container>
               <Menu inverted pointing secondary size="large">
                 <Menu.Item onClick={handleToggle}>

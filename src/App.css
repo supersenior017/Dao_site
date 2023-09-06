@@ -112,3 +112,51 @@ blockquote cite:after {
 .far2bottom{
   margin-bottom: 10px;
 }
+.color-picker{
+  width: 30px;
+  height: 30px;
+  margin-top: 5px;
+  border-radius: 5px;
+  margin-right:10px
+}
+
+.selected{
+  width: 34px;
+  height: 34px;
+  /* border:5px solid grey; */
+  box-shadow: 0 0 5px 5px grey;
+}
+
+.span-container {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+.left-side {
+  position: absolute;
+  top: 0;
+  left: -17px;
+  width: 100%;
+  height: 100%;
+
+  transform: skew(30deg);
+  transform-origin: 0 0;
+}
+
+.right-side {
+  position: absolute;
+  top: 0;
+  right: -6px;
+  width: 100%;
+  height: 100%;
+ 
+  transform: skew(30deg);
+  transform-origin: 100% 0;
+}
+
+.mobile-list{
+  margin: 15px;
+  font-size: large;
+  color:white;
+}
