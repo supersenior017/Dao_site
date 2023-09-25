@@ -195,16 +195,16 @@ const Brand = () => (
     </Grid>
     <Grid relaxed='very' columns={4} style={{ backgroundColor: "rgb(254,248,4)" }}>
       <Grid.Column>
-        <Image src='/footer1.jpg' height="auto" style={{ maxHeight: "180px" }} width="auto" centered />
+        <Image src='/footer1.jpg' height="auto" style={{ maxHeight: "280px" }} width="auto" centered />
       </Grid.Column>
       <Grid.Column>
-        <Image src='/footer2.jpg' height="auto" style={{ maxHeight: "180px" }} width="auto" centered />
+        <Image src='/footer2.jpg' height="auto" style={{ maxHeight: "280px" }} width="auto" centered />
       </Grid.Column>
       <Grid.Column>
-        <Image src='/footer3.jpg' height="auto" style={{ maxHeight: "180px" }} width="auto" centered />
+        <Image src='/footer3.jpg' height="auto" style={{ maxHeight: "280px" }} width="auto" centered />
       </Grid.Column>
       <Grid.Column>
-        <Image src='/footer4.jpg' height="auto" style={{ maxHeight: "180px" }} width="auto" centered />
+        <Image src='/footer4.jpg' height="auto" style={{ maxHeight: "280px" }} width="auto" centered />
       </Grid.Column>
     </Grid>
   </Segment>

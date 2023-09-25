@@ -19,6 +19,7 @@ const colors = [{
   type: "double",
   color: "green",
   extraColor: "black",
+  border: "yellow",
   file: "/dragon/Black Yellow Green Dragon 8132.jpg"
 }, {
   type: "single",
@@ -28,6 +29,7 @@ const colors = [{
 }, {
   type: "double",
   color: "blue",
+  border: "white",
   extraColor: "red",
   file: "/dragon/Blue White Red Dragon 8136.jpg"
 }, {
@@ -44,20 +46,22 @@ const colors = [{
   type: "double",
   color: "green",
   extraColor: "blue",
+  border: "white",
   file: "/dragon/Green White Blue Dragon 8131.jpg"
 }, {
   type: "double",
   color: "green",
   extraColor: "red",
+  border: "yellow",
   file: "/dragon/Green Yellow Red Dragon 8130.jpg"
 }, {
   type: "single",
-  color: "rgb(147,0,74)",
+  color: "rgb(147,0,74)", colorName: "maroon",
   extraColor: "",
   file: "/dragon/Maroon Dragon 8139.jpg"
 }, {
   type: "single",
-  color: "rgb(71,36,184)",
+  color: "rgb(71,36,184)", colorName: "Dark purple",
   extraColor: "",
   file: "/dragon/Purple Dragon 8139.jpg"
 }, {
@@ -69,6 +73,7 @@ const colors = [{
   type: "double",
   color: "red",
   extraColor: "black",
+  border: "yellow",
   file: "/dragon/Red Yellow Black Dragon 8137.jpg"
 }, {
   type: "single",
@@ -89,17 +94,18 @@ const colors1 = [{
   file: "/turtle/Green Turtle 8148.jpg"
 }, {
   type: "single",
-  color: "rgb(123,16,67)",
+  color: "rgb(123,16,67)", colorName: "maroon",
   extraColor: "",
   file: "/turtle/Maroon Turtle 8152.jpg"
 }, {
   type: "single",
-  color: "rgb(60,34,171)",
+  color: "rgb(60,34,171)", colorName: "Dark purple",
   extraColor: "",
   file: "/turtle/Purple Turtle 8150.jpg"
 },]
 
-const Store = () => {
+const PictureSlide = (props) => {
+  const { selected, setSelected, colors } = props;
   const settings = {
     infinite: true,
     speed: 500,
@@ -109,9 +115,6 @@ const Store = () => {
     slidesToScroll: 1
   };
 
-  const [selected, setSelected] = useState({ content: { type: "", color: "", extraColor: "", file: "" }, id: null });
-  const [selected1, setSelected1] = useState({ content: { type: "", color: "", extraColor: "", file: "" }, id: null });
-
   const colorClick = (whichSelect, whichSetSelect, each, key) => {
     if (whichSelect.id === key) {
       whichSetSelect({ ...whichSelect, id: null })
@@ -119,6 +122,83 @@ const Store = () => {
       whichSetSelect({ content: each, id: key })
     }
   }
+
+  const pictureDes = (pic) =>
+    <div style={{ textAlign: 'center' }}>
+      <span className="color-badge" >
+        {
+          pic.color.slice(0, 3) === "rgb" ?
+            pic.colorName.toUpperCase() :
+            pic.color.toUpperCase()
+        }
+      </span>
+      {
+        pic.type === "double" ? <>
+          <span className="color-badge" >
+            {pic.border.toUpperCase()}
+          </span>
+          <span className="color-badge">
+            {pic.extraColor.toUpperCase()}
+          </span>
+        </> : <></>
+      }
+    </div>
+
+  return (<Grid.Column fluid="true" width={8} style={{ display: "flex", alignItems: "center", justifyContent: "center"}} >
+    <p className="small yellow inline bold"><span style={{ fontSize: "28px" }}>D</span>RAGON</p>
+
+    {
+      selected.id !== null ?
+        <>
+          <img className="ui rounded image centered" alt="Turtle" src={selected.content.file} fluid="true" data-xblocker="passed" />
+          {pictureDes(selected.content)}
+        </> :
+        <Slider
+          {...settings}
+          style={{ width: "100%" }}
+        >
+          {colors.map((each, key) => {
+            return (<div key={key}  style={{alignItems: "center", justifyContent: "center",}}>
+              <img src={each.file} className="ui rounded image centered" alt="Dragon" fluid="true" data-xblocker="passed" />
+              {pictureDes(each)}
+            </div>)
+          })}
+        </Slider>
+    }
+    <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center" }}>
+
+      {colors.map((each, key) => {
+        let isSelected = ""
+        if (key === selected.id) isSelected = " selected";
+
+        if (each.type === "single") {
+          return (
+            <div
+              key={key}
+              className={`color-picker ${isSelected}`}
+              style={{ backgroundColor: each.color }}
+              onClick={() => { colorClick(selected, setSelected, each, key); }}
+            ></div>)
+        } else if (each.type === "double") {
+          return (
+            <div
+              key={key}
+              className={`span-container color-picker ${isSelected}`}
+              onClick={() => { colorClick(selected, setSelected, each, key); }}
+            >
+              <span className="left-side" style={{ backgroundColor: each.color }}></span>
+              <span className="border-side" style={{ backgroundColor: each.border }}></span>
+              <span className="right-side" style={{ backgroundColor: each.extraColor }}></span>
+            </div>)
+        }
+      })}
+    </div>
+  </Grid.Column>)
+}
+
+const Store = () => {
+  const [selected, setSelected] = useState({ content: { type: "", color: "", extraColor: "", file: "" }, id: null });
+  const [selected1, setSelected1] = useState({ content: { type: "", color: "", extraColor: "", file: "" }, id: null });
 
   return (
     <Segment style={{ padding: "8em 0em" }} vertical>
@@ -136,96 +216,8 @@ const Store = () => {
         </Grid.Row>
 
         <Grid.Row centered>
-          <Grid.Column fluid="true" width={8} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <p className="small yellow inline bold"><span style={{ fontSize: "28px" }}>D</span>RAGON</p>
-
-            {
-              selected.id ?
-                <img class="ui rounded image centered" alt="Turtle" src={selected.content.file} fluid data-xblocker="passed" /> :
-                <Slider
-                  {...settings}
-                  style={{ width: "100%" }}
-                >
-                  {colors.map((each, key) => {
-                    return (<div key={key}>
-                      <img src={each.file} className="ui rounded image centered" alt="Dragon" fluid="true" data-xblocker="passed" />
-                    </div>)
-                  })}
-                </Slider>
-            }
-            <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center" }}>
-
-              {colors.map((each, key) => {
-                let isSelected = ""
-                if (key === selected.id) isSelected = " selected";
-
-                if (each.type === "single") {
-                  return (
-                    <div
-                      key={key}
-                      className={`color-picker ${isSelected}`}
-                      style={{ backgroundColor: each.color }}
-                      onClick={() => { colorClick(selected, setSelected, each, key); }}
-                    ></div>)
-                } else if (each.type === "double") {
-                  return (
-                    <div
-                      key={key}
-                      className={`span-container color-picker ${isSelected}`}
-                      onClick={() => { colorClick(selected, setSelected, each, key); }}>
-                      <span className="left-side" style={{ backgroundColor: each.color }}></span>
-                      <span className="right-side" style={{ backgroundColor: each.extraColor }}></span>
-                    </div>)
-                }
-              })}
-
-            </div>
-          </Grid.Column>
-          <Grid.Column fluid="true" width={8} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <p className="small yellow inline bold"><span style={{ fontSize: "28px" }}>T</span>URTLE</p>
-
-            {
-              selected1.id ?
-                <img class="ui rounded image centered" alt="Turtle" src={selected1.content.file} fluid data-xblocker="passed" /> :
-                <Slider
-                  {...settings}
-                  style={{ width: "100%" }}
-                >
-                  {colors1.map((each, key) => {
-                    return (<div key={key}>
-                      <img src={each.file} className="ui rounded image centered" alt="Dragon" fluid="true" data-xblocker="passed" />
-                    </div>)
-                  })}
-                </Slider>
-            }
-
-            <div style={{ display: "flex", alignItems: "center" }}>
-
-              {colors1.map((each, key) => {
-                let isSelected = ""
-                if (key === selected1.id) isSelected = " selected";
-
-                if (each.type === "single") {
-                  return (
-                    <div
-                      key={key}
-                      className={`color-picker ${isSelected}`}
-                      style={{ backgroundColor: each.color }}
-                      onClick={() => { colorClick(selected1, setSelected1, each, key); }}
-                    ></div>)
-                } else if (each.type === "double") {
-                  return (
-                    <div
-                      className={`span-container color-picker ${isSelected}`}
-                      onClick={() => { colorClick(selected1, setSelected1, each, key); }}>
-                      <span className="left-side" style={{ backgroundColor: each.color }}></span>
-                      <span className="right-side" style={{ backgroundColor: each.extraColor }}></span>
-                    </div>)
-                }
-              })}
-
-            </div>
-          </Grid.Column>
+          <PictureSlide selected={selected} setSelected={setSelected} colors={colors} />
+          <PictureSlide selected={selected1} setSelected={setSelected1} colors={colors1} />
         </Grid.Row>
         <Grid.Row style={{ paddingBottom: "80px" }}>
           <Grid.Column floated="right" width={11}>
