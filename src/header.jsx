@@ -7,7 +7,7 @@ import {
   Sidebar,
   Icon,
   Menu,
-  Responsive,
+  
   Segment,
   Visibility
 } from "semantic-ui-react";
@@ -24,7 +24,7 @@ const DesktopContainer = ({ children }) => {
   };
 
   return (
-    <Responsive minWidth={Responsive.onlyTablet.minWidth}>
+    <div>
       <Visibility
         once={false}
         onBottomPassed={showFixedMenu}
@@ -53,7 +53,7 @@ const DesktopContainer = ({ children }) => {
         </Segment>
       </Visibility>
       {children}
-    </Responsive>
+    </div>
   );
 }
 
@@ -72,7 +72,7 @@ const MobileContainer = ({ children }) => {
   };
 
   return (
-    <Responsive maxWidth={Responsive.onlyMobile.maxWidth}>
+    <div >
       <Sidebar.Pushable>
         <Sidebar
           as={Menu}
@@ -108,7 +108,7 @@ const MobileContainer = ({ children }) => {
           {children}
         </Sidebar.Pusher>
       </Sidebar.Pushable>
-    </Responsive>
+    </div>
   );
 }
 

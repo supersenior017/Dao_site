@@ -179,3 +179,30 @@ blockquote cite:after {
   padding: 5px;
   font-size: 16px;
 }
+
+.footer-image{
+  padding-left: 0px!important;
+  padding-right: 0px!important;
+  padding-bottom: 0px!important;
+  padding-top: 0px!important;
+  display: flex!important;
+  justify-content: center; /* Align horizontally in center */
+  align-items: center;
+}
+
+.footer-image-wrap{
+  margin-left: 0px!important;
+  margin-right: 0px!important;
+  margin-bottom: 0px!important;
+  margin-top: 0px!important;
+  background-color: rgb(254,248,4);
+}
+
+.footer-each-image {
+  max-height: 280px;
+  height: auto;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

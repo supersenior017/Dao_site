@@ -8,6 +8,13 @@ import {
   List,
   Segment,
 } from "semantic-ui-react";
+
+const footerImage = [
+  '/footer1.jpg',
+  '/footer2.jpg',
+  '/footer3.jpg',
+  '/footer4.jpg',
+]
 const Brand = () => (
   <Segment style={{ padding: "4em 0em 0em 0em" }} vertical>
     <Grid container stackable verticalAlign="middle">
@@ -110,7 +117,7 @@ const Brand = () => (
       <Grid.Row style={{ paddingBottom: "80px" }}>
         <Grid.Column width={8} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
           <div style={{ textAlign: "center" }}>
-          <p className="big bold">“
+            <p className="big bold">“
               <span className="big bold yellow underline"><span style={{ fontSize: "34px", paddingTop: "-10px" }}>S</span>CIENCE</span>
               ”
             </p>
@@ -193,19 +200,15 @@ const Brand = () => (
         </Grid.Column>
       </Grid.Row>
     </Grid>
-    <Grid relaxed='very' columns={4} style={{ backgroundColor: "rgb(254,248,4)" }}>
-      <Grid.Column>
-        <Image src='/footer1.jpg' height="auto" style={{ maxHeight: "280px" }} width="auto" centered />
-      </Grid.Column>
-      <Grid.Column>
-        <Image src='/footer2.jpg' height="auto" style={{ maxHeight: "280px" }} width="auto" centered />
-      </Grid.Column>
-      <Grid.Column>
-        <Image src='/footer3.jpg' height="auto" style={{ maxHeight: "280px" }} width="auto" centered />
-      </Grid.Column>
-      <Grid.Column>
-        <Image src='/footer4.jpg' height="auto" style={{ maxHeight: "280px" }} width="auto" centered />
-      </Grid.Column>
+    <Grid relaxed='very' columns={4} className="footer-image-wrap">
+      {
+        footerImage.map((each, key) =>
+          <Grid.Column className="footer-image" key={key}>
+            <Image src={each}  className="footer-each-image"  />
+          </Grid.Column>
+        )
+      }
+
     </Grid>
   </Segment>
 )
