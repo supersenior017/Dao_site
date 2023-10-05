@@ -11,7 +11,7 @@ import {
     Message
 } from "semantic-ui-react";
 import Slider from 'react-slick';
-
+const allowedValue = ["", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
 
 const PictureSlide = (props) => {
     const { selected, setSelected, colors, modifyCount, type } = props;
@@ -54,7 +54,7 @@ const PictureSlide = (props) => {
         </div>
 
 
-    const CustomizedPopup = ({ children, customKey }) => {
+    const CustomizedPopup = ({ children, customKey, selected, setSelected }) => {
         const [inputValue, setInputValue] = useState(colors[customKey].count);
         const [message4error, setMessage4error] = useState("");
 
@@ -86,12 +86,29 @@ const PictureSlide = (props) => {
             trigger={children}
             open={customKey === selected.id}
         >
+            <div >
+                <span
+                    style={{ float: "right", cursor:"pointer" }}
+                    onClick={() => {
+                        setSelected({ ...selected, id: null })
+                    }}
+                >
+                    X
+                </span>
+
+            </div>
+
             <Input
                 type="number"
                 size="mini"
                 value={inputValue}
                 width="full"
-                onChange={(e) => { setInputValue(e.target.value) }}
+                onChange={(e) => {
+                    if (allowedValue.includes(e.target.value)) {
+                        setInputValue(e.target.value)
+                    }
+
+                }}
                 placeholder="Required Number"
                 labelPosition='right'
                 label={{ tag: true, content: '' }}
@@ -111,7 +128,7 @@ const PictureSlide = (props) => {
                     </Button>
                 </GridColumn>
                 <GridColumn>
-                    <Button negative size="mini" disabled={isDisabled()} onClick={() => { countModify(0) }}>Remove</Button>
+                    <Button negative size="mini" basic disabled={isDisabled()} onClick={() => { countModify(0) }}>Remove</Button>
                 </GridColumn>
             </Grid>
         </Popup>)
@@ -148,7 +165,7 @@ const PictureSlide = (props) => {
 
                 if (each.type === "single") {
                     return (
-                        <CustomizedPopup customKey={key}>
+                        <CustomizedPopup customKey={key} selected={selected} setSelected={setSelected}>
                             <div
                                 key={key}
                                 className={`color-picker ${isSelected}`}
@@ -159,7 +176,7 @@ const PictureSlide = (props) => {
                     )
                 } else if (each.type === "double") {
                     return (
-                        <CustomizedPopup customKey={key}>
+                        <CustomizedPopup customKey={key} selected={selected} setSelected={setSelected}>
                             <div
                                 key={key}
                                 className={`span-container color-picker ${isSelected}`}

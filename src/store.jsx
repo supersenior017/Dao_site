@@ -8,11 +8,15 @@ import {
   Grid,
   Segment,
   Image,
-  Card
+  Card,
+  Message
 } from "semantic-ui-react";
 
 import PictureSlide from "./component/PictureSlide";
 import Cart from "./component/Cart";
+import PayPal from "./component/PayPal"
+
+
 const colors = [{
   type: "single",
   color: "black",
@@ -144,17 +148,34 @@ const Store = () => {
             <img className="ui rounded image centered" alt="Hand" src="/main_bg.jpg" fluid="true" data-xblocker="passed" width="1300px" />
           </Grid.Column>
         </Grid.Row>
-
         <Grid.Row centered>
           <PictureSlide selected={selected} setSelected={setSelected} colors={dragon} modifyCount={setDragon} type="DRAGON" />
           <PictureSlide selected={selected1} setSelected={setSelected1} colors={turtle} modifyCount={setTurtle} type="TURTLE" />
         </Grid.Row>
+        <PayPal/>
+        <Grid.Row centered>
+          <Message>
+            <Grid>
+              <Grid.Row centered className="bold big">
+                Left Click on colors to choose quantity
+              </Grid.Row>
+              <Grid.Row centered style={{ marginLeft:"10%", marginRight:"10%",justifyContent: "space-between" }} >
+                <span className="small bold">DRAGONS $10 each</span>
+                <span className="small bold">TURTLES $5 each</span>
+              </Grid.Row>
+              <Grid.Row centered className="small">
+                See Specials Below
+              </Grid.Row>
+            </Grid>
+          </Message>
+        </Grid.Row>
         <Grid.Row centered>
           <Card.Group centered>
-            <Cart data={dragon} modifyCount={setDragon} type="DRAGON" selected={selected} setSelected={setSelected}/>
-            <Cart data={turtle} modifyCount={setTurtle} type="TURTLE" selected={selected} setSelected={setSelected}/>
+            <Cart data={dragon} modifyCount={setDragon} type="DRAGON" selected={selected} setSelected={setSelected} />
+            <Cart data={turtle} modifyCount={setTurtle} type="TURTLE" selected={selected} setSelected={setSelected} />
           </Card.Group>
         </Grid.Row>
+
         <Grid.Row style={{ paddingBottom: "80px" }}>
           <Grid.Column floated="right" width={11}>
             <Image
@@ -171,6 +192,7 @@ const Store = () => {
             </div>
           </Grid.Column>
         </Grid.Row>
+
         <Grid.Row style={{ paddingBottom: "80px" }}>
           <Grid.Column style={{ display: "flex", alignItems: "center", justifyContent: "center" }} width={10}>
 

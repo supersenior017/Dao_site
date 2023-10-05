@@ -44,8 +44,8 @@ const PictureSlide = (props) => {
                     <Card.Meta>
                         {type}
                     </Card.Meta>
-                    <Card.Description>
-                        <Input
+                    <Card.Description className="bold small">
+                        {/* <Input
                             type="number"
                             size="mini"
                             value={inputValue}
@@ -54,7 +54,8 @@ const PictureSlide = (props) => {
                             placeholder="Required Number"
                             labelPosition='right'
                             label={{ tag: true, content: '' }}
-                        />
+                        /> */}
+                        {inputValue}
                         <Message
                             size="mini"
                             color="red"
@@ -65,7 +66,7 @@ const PictureSlide = (props) => {
                         </Message>
                     </Card.Description>
                 </Card.Content>
-                <Card.Content extra>
+                {/* <Card.Content extra>
                     <div className='ui two buttons'>
                         <button className='ui basic green button' onClick={() => { countModify(Number(inputValue)) }}>
                             Modify
@@ -74,7 +75,7 @@ const PictureSlide = (props) => {
                             Remove
                         </button>
                     </div>
-                </Card.Content>
+                </Card.Content> */}
             </Card>
         )
     }
