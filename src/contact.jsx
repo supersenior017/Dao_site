@@ -23,7 +23,7 @@ const Contract = () => (
         </Grid.Column>
         <Grid.Column width={8} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
           <div style={{ textAlign: "left", width: "100%" }}>
-            <p className="big bold"> <Image style={{ height: "30px", width: "auto", display: "inline" }} src="/instagram.png" />: @daoscience</p>
+            <p className="big bold"> <a href="https://www.instagram.com/daoscience/" target="_blank"><Image style={{ height: "30px", width: "auto", display: "inline" }} src="/instagram.png" />: @daoscience</a></p>
             <p className="big bold underline" style={{ color: "blue", overflowWrap: "break-word" }}>
               <span>
                 <a href="mailto:DaoScience.Sales@gmail.com">DaoScience.Sales@gmail.com</a>

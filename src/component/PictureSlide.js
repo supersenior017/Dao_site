@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useRef, useEffect } from "react";
 import "semantic-ui-css/semantic.min.css";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -8,7 +9,7 @@ import {
     Input,
     Button,
     GridColumn,
-    Message
+    Icon
 } from "semantic-ui-react";
 import Slider from 'react-slick';
 const allowedValue = ["", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
@@ -33,7 +34,7 @@ const PictureSlide = (props) => {
     }
 
     const pictureDes = (pic) =>
-        <div style={{ textAlign: 'center' }}>
+        <div style={{ textAlign: 'center', border: "none" }}>
             <span className="color-badge" >
                 {
                     pic.color.slice(0, 3) === "rgb" ?
@@ -56,82 +57,101 @@ const PictureSlide = (props) => {
 
     const CustomizedPopup = ({ children, customKey, selected, setSelected }) => {
         const [inputValue, setInputValue] = useState(colors[customKey].count);
-        const [message4error, setMessage4error] = useState("");
-
-
-        let isDisabled = () => {
-            let disabled = false;
-            if (colors[customKey].count === 0) disabled = true;
-            return disabled;
-        };
 
         const countModify = (value) => {
-            if (!Number.isInteger(value)) {
-                setMessage4error("Error! Value must be integer.")
-            } else if (value < 0 || value > 10) {
-                setMessage4error("Error! Value must be between 0 and 10.")
-            } else {
-                let newColors = colors;
-                setMessage4error("");
-                newColors[customKey].count = value;
-                modifyCount(newColors);
-                setInputValue(value);
-                setSelected({ ...selected, id: null })
+            let newColors = colors;
+            newColors[customKey].count = value;
+            modifyCount(newColors);
+            setInputValue(value);
+            setSelected({ ...selected, id: null })
+        }
+
+        const popupRef = useRef();
+
+
+        // Hook for adding event listeners on mount and cleaning up on unmount
+        useEffect(() => {
+            // Check if the click is outside
+            const handleClickOutside = event => {
+                if (!event.target.closest('.ui.popup')) {
+                    setSelected({ ...selected, id: null });
+                }
+            };
+
+            // If the popup is opened, add the listener
+            if (customKey === selected.id) {
+                document.addEventListener('mousedown', handleClickOutside);
             }
 
-        }
+            // Clean up on unmount or when the popup closes
+            return () => {
+                document.removeEventListener('mousedown', handleClickOutside);
+            };
+        }, [customKey, selected, setSelected]); // Add your state variables in the dependency array
 
 
         return (<Popup
+            ref={popupRef}
             trigger={children}
             open={customKey === selected.id}
+            style={{ height: '120px' }}
         >
             <div >
                 <span
-                    style={{ float: "right", cursor:"pointer" }}
+                    style={{ float: "right", cursor: "pointer" }}
                     onClick={() => {
                         setSelected({ ...selected, id: null })
                     }}
                 >
-                    X
+                    Χ
                 </span>
 
             </div>
 
-            <Input
-                type="number"
-                size="mini"
-                value={inputValue}
-                width="full"
-                onChange={(e) => {
-                    if (allowedValue.includes(e.target.value)) {
-                        setInputValue(e.target.value)
-                    }
+            <Grid.Column>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: "20px", marginBottom: "10px" }}>
+                    <button
+                        class="ui icon button"
+                        style={{ height: "35px" }}
+                        onClick={() => inputValue >= 1 && allowedValue.includes(`${inputValue * 1 - 1}`) && setInputValue(`${inputValue * 1 - 1}`)}
+                        disabled={inputValue <= 0}
+                    >
+                        <i class={inputValue >= 2 ? "minus icon" : "trash icon"}></i>
+                    </button>
+                    <Input
+                        style={{ width: "70px", height: "35px", fontSize: "15px", marginLeft: "-3px" }}
+                        type="number"
+                        size="mini"
+                        value={inputValue}
+                        width="full"
+                        onChange={(e) => {
+                            if (allowedValue.includes(e.target.value)) {
+                                setInputValue(e.target.value)
+                            }
 
-                }}
-                placeholder="Required Number"
-                labelPosition='right'
-                label={{ tag: true, content: '' }}
-            />
-            <Message
-                size="mini"
-                color="red"
-                visible={message4error.length > 0}
-                hidden={message4error.length === 0}
-            >
-                {message4error}
-            </Message>
-            <Grid centered columns={2}>
-                <GridColumn>
-                    <Button positive size="mini" onClick={() => { countModify(Number(inputValue)) }}>
-                        {isDisabled() ? "Add" : "Modify"}
-                    </Button>
-                </GridColumn>
-                <GridColumn>
-                    <Button negative size="mini" basic disabled={isDisabled()} onClick={() => { countModify(0) }}>Remove</Button>
-                </GridColumn>
+                        }}
+                        placeholder="Required Number"
+                    />
+                    <button
+                        class="ui icon button"
+                        style={{ height: "35px" }}
+                        onClick={() => allowedValue.includes(`${inputValue * 1 + 1}`) && setInputValue(`${inputValue * 1 + 1}`)}
+                        disabled={inputValue >= 10}
+                    >
+                        <i class="plus icon"></i>
+                    </button>
+                </div>
+            </Grid.Column>
+            <Grid centered columns={1}>
+                <Button style={{ marginTop: "10px", width: '100px' }} animated='vertical' size='small' color='teal' onClick={() => { countModify(Number(inputValue)) }}>
+                    <Button.Content hidden>Add to Cart</Button.Content>
+                    <Button.Content visible>
+                        <Icon name='shop' />
+                    </Button.Content>
+                </Button>
             </Grid>
         </Popup>)
+
     }
 
 
