@@ -1,5 +1,6 @@
 
 import React, { useState } from "react";
+import { Link, animateScroll as scroll } from "react-scroll";
 import "./App.css";
 import "semantic-ui-css/semantic.min.css";
 import 'slick-carousel/slick/slick.css';
@@ -180,7 +181,7 @@ const Store = () => {
           <PictureSlide selected={selected} setSelected={setSelected} colors={dragon} modifyCount={setDragon} type="DRAGON" />
           <PictureSlide selected={selected1} setSelected={setSelected1} colors={turtle} modifyCount={setTurtle} type="TURTLE" />
         </Grid.Row>
-        
+
         <Grid.Row centered>
           <Message style={{ width: "90%", marginBottom: "20px" }}>
 
@@ -193,7 +194,14 @@ const Store = () => {
                 <span className="small bold" style={{ padding: "auto", margin: "auto" }}>TURTLES $5 each</span>
               </Grid.Row>
               <Grid.Row centered className="small">
-                See Specials Below
+
+                <Link
+                  to="section1"
+                  smooth={true}
+                  duration={500}
+                >
+                  See Specials Below
+                </Link>
               </Grid.Row>
             </Grid>
           </Message>
@@ -239,9 +247,7 @@ const Store = () => {
 
           </Message>
         </Grid.Row>
-
-
-        <Grid.Row style={{ paddingBottom: "80px" }}>
+        <Grid.Row style={{ paddingBottom: "80px" }} id="section1">
           <Grid.Column floated="right" width={11}>
             <Image
               style={{ width: "100%" }}
@@ -258,14 +264,140 @@ const Store = () => {
           </Grid.Column>
         </Grid.Row>
 
+        <Grid.Row centered>
+          <Grid.Column width={12} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <p className="small bold"><span className="inline yellow underline" style={{ width: "auto" }}><span style={{ fontSize: "26px" }}>H</span>OW <span style={{ fontSize: "26px" }}>T</span>O <span style={{ fontSize: "26px" }}>U</span>SE</span></p>
+            <p className="big bold"><span className="inline yellow underline" style={{ width: "auto" }}><span style={{ fontSize: "34px", paddingTop: "-10px" }}>~  D</span>AO <span style={{ fontSize: "34px", paddingTop: "-10px" }}>S</span>CIENCE  <span style={{ fontSize: "34px", paddingTop: "-10px" }}>~</span></span></p>
+            <p className="small bold "><span className="inline yellow underline" style={{ width: "auto" }}><span style={{ fontSize: "26px" }}>C</span>ARB  <span style={{ fontSize: "26px" }}>C</span>APS:</span></p>
+          </Grid.Column>
+        </Grid.Row>
+
+        <Grid.Row centered>
+          <div className="yellow" style={{ display: "flex", border: "3px solid black", width: "100%", justifyContent: "space-between", paddingLeft: "100px", paddingRight: "100px" }}>
+            <Grid.Column width={6} style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
+              <p className="small bold "><span className="inline" style={{ width: "auto" }}><span style={{ fontSize: "26px" }}>~ C</span>ONTROL <span style={{ fontSize: "26px" }}>Y</span>OUR <span style={{ fontSize: "26px" }}>B</span>URN <span style={{ fontSize: "26px" }}>~</span></span></p>
+
+            </Grid.Column>
+            <Grid.Column width={6} style={{ display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
+              <p className="small bold "><span className="inline" style={{ width: "auto" }}><span style={{ fontSize: "26px" }}>~ S</span>AVE <span style={{ fontSize: "26px" }}>Y</span>OUR <span style={{ fontSize: "26px" }}>$</span>TA$H <span style={{ fontSize: "26px" }}>~</span></span></p>
+            </Grid.Column>
+          </div>
+        </Grid.Row>
+
+        <Grid.Row centered>
+          <div className="yellow" style={{ border: "3px solid black", width: "100%" }}>
+            <Grid.Column width={12} style={{ display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "30px" }}>
+              <p className="small bold "><span className="inline" style={{ width: "auto" }}><span style={{ fontSize: "26px" }}>~&nbsp;&nbsp;&nbsp;&nbsp;P</span>IPES&nbsp;&nbsp;&nbsp;&nbsp;<span style={{ fontSize: "26px" }}>~&nbsp;&nbsp;&nbsp;&nbsp;B</span>ONGS&nbsp;&nbsp;&nbsp;&nbsp;<span style={{ fontSize: "26px" }}>~&nbsp;&nbsp;&nbsp;&nbsp;D</span>AB <span style={{ fontSize: "26px" }}>R</span>IGS&nbsp;&nbsp;&nbsp;&nbsp;<span style={{ fontSize: "26px" }}>~</span></span></p>
+
+            </Grid.Column>
+            <Grid.Column width={12} style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: "30px", marginBottom: "30px" }}>
+              <p className="small bold "><span className="inline" style={{ width: "auto" }}><span style={{ fontSize: "26px" }}>~&nbsp;&nbsp;&nbsp;&nbsp;</span><span className="underline"><span style={{ fontSize: "26px" }}>L</span>IGHTER <span style={{ fontSize: "26px" }}>C</span>ADDY</span><span style={{ fontSize: "26px" }}>&nbsp;&nbsp;&nbsp;&nbsp;~</span></span></p>
+            </Grid.Column>
+            <Grid.Column width={12} style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: "30px" }}>
+              <p className="small bold "><span className="inline" style={{ width: "auto" }}><span style={{ fontSize: "26px" }}>~&nbsp;&nbsp;&nbsp;&nbsp;B</span>ANGERS&nbsp;&nbsp;&nbsp;&nbsp;<span style={{ fontSize: "26px" }}>~&nbsp;&nbsp;&nbsp;&nbsp;C</span>HILLUMS&nbsp;&nbsp;&nbsp;&nbsp;<span style={{ fontSize: "26px" }}>~&nbsp;&nbsp;&nbsp;&nbsp;A</span>SHTRAY&nbsp;&nbsp;&nbsp;&nbsp;<span style={{ fontSize: "26px" }}>~</span></span></p>
+            </Grid.Column>
+          </div>
+        </Grid.Row>
+
+        <Grid.Row centered>
+          <div className="yellow" style={{ display: "flex", border: "3px solid black", width: "100%", justifyContent: "space-between", paddingLeft: "100px", paddingRight: "100px" }}>
+            <Grid.Column width={6} style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
+              <p className="small bold "><span className="inline" style={{ width: "auto" }}><span style={{ fontSize: "26px" }}>~ W</span>HICH <span style={{ fontSize: "26px" }}>T</span>OOLS <span style={{ fontSize: "26px" }}>F</span>IT <span style={{ fontSize: "26px" }}>Y</span>OU<span style={{ fontSize: "26px" }}>? ~</span></span></p>
+
+            </Grid.Column>
+            <Grid.Column width={6} style={{ display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
+              <p className="small bold "><span className="inline" style={{ width: "auto" }}><span style={{ fontSize: "26px" }}>~ W</span>HAT<span style={{ fontSize: "26px" }}>'</span>S <span style={{ fontSize: "26px" }}>Y</span>OUR <span style={{ fontSize: "26px" }}>R</span>ITUAL<span style={{ fontSize: "26px" }}>? ~</span></span></p>
+            </Grid.Column>
+          </div>
+        </Grid.Row>
+
+        <Grid.Row centered>
+          <Grid style={{ width: "100%" }}>
+            <Grid.Row>
+              <Grid columns={4}>
+                <Grid.Row style={{ border: '3px solid black', padding: 0 }}>
+                  <Grid.Column style={{ display: "flex", alignItems: "center", justifyContent: "center", borderRight: '3px solid black', margin: 0 }}>
+                    <p className="small bold "><span className="inline" style={{ width: "auto" }}><span style={{ fontSize: "26px" }}>V</span>IDEO <span style={{ fontSize: "26px" }}>1</span></span></p>
+                  </Grid.Column>
+                  <Grid.Column style={{ display: "flex", alignItems: "center", justifyContent: "center", borderRight: '3px solid black', margin: 0 }}>
+                    <p className="small bold "><span className="inline" style={{ width: "auto" }}><span style={{ fontSize: "26px" }}>V</span>IDEO <span style={{ fontSize: "26px" }}>2</span></span></p>
+                  </Grid.Column>
+                  <Grid.Column style={{ display: "flex", alignItems: "center", justifyContent: "center", borderRight: '3px solid black', margin: 0 }}>
+                    <p className="small bold "><span className="inline" style={{ width: "auto" }}><span style={{ fontSize: "26px" }}>V</span>IDEO <span style={{ fontSize: "26px" }}>3</span></span></p>
+                  </Grid.Column>
+                  <Grid.Column style={{ margin: 0 }}>
+                    <p className="small bold "><span className="inline" style={{ width: "auto" }}><span style={{ fontSize: "26px" }}>V</span>IDEO <span style={{ fontSize: "26px" }}>4</span></span></p>
+                  </Grid.Column>
+                </Grid.Row>
+
+                <Grid.Row style={{ borderLeft: '3px solid black', borderRight: '3px solid black', padding: 0, backgroundColor: 'rgb(254,248,4)' }}>
+                  <Grid.Column style={{ display: "flex", alignItems: "center", justifyContent: "center", borderRight: '3px solid black', margin: 0 }}>
+                    <p className="small bold underline"><span className="inline" style={{ width: "auto" }}><span style={{ fontSize: "26px" }}>D</span>RAGON</span></p>
+                  </Grid.Column>
+                  <Grid.Column style={{ display: "flex", alignItems: "center", justifyContent: "center", borderRight: '3px solid black', margin: 0 }}>
+                    <p className="small bold underline"><span className="inline" style={{ width: "auto" }}><span style={{ fontSize: "26px" }}>T</span>URTLE</span></p>
+                  </Grid.Column>
+                  <Grid.Column style={{ alignItems: "center", justifyContent: "center",  borderRight: '3px solid black'}}>
+                    <p className="small bold " style={{ marginTop: "20px", marginBottom: "0px" }}><span className="inline underline" style={{ width: "auto" }}><span style={{ fontSize: "26px" }}>D</span>RAGON <span style={{ fontSize: "26px" }}>&</span></span></p>
+                    <p className="small bold "><span className="inline underline" style={{ width: "auto", marginBottom: "20px"}}><span style={{ fontSize: "26px" }}>T</span>URTLE</span></p>
+                  </Grid.Column>
+                  <Grid.Column style={{ alignItems: "center", justifyContent: "center", marginBottom: "20px"}}>
+                    <p className="small bold" style={{ marginTop: "20px", marginBottom: "0px" }}><span className="inline underline" style={{ width: "auto" }}><span style={{ fontSize: "26px" }}>T</span>URTLE <span style={{ fontSize: "26px" }}>&</span></span></p>
+                    <p className="small bold"><span className="inline underline" style={{ width: "auto", marginBottom: "20px"  }}><span style={{ fontSize: "26px" }}>T</span>URTLE</span></p>
+                  </Grid.Column>
+                </Grid.Row>
+
+                <Grid.Row style={{ border: '3px solid black', padding: 0 }}>
+                  <Grid.Column style={{ display: "flex", alignItems: "center", justifyContent: "center", borderRight: '3px solid black', margin: 0 }}>
+                    <p className="small bold "><span className="inline" style={{ width: "auto" }}><span style={{ fontSize: "26px" }}>G</span>IF <span style={{ fontSize: "26px" }}>1</span></span></p>
+                  </Grid.Column>
+                  <Grid.Column style={{ display: "flex", alignItems: "center", justifyContent: "center", borderRight: '3px solid black', margin: 0 }}>
+                    <p className="small bold "><span className="inline" style={{ width: "auto" }}><span style={{ fontSize: "26px" }}>G</span>IF <span style={{ fontSize: "26px" }}>2</span></span></p>
+                  </Grid.Column>
+                  <Grid.Column style={{ display: "flex", alignItems: "center", justifyContent: "center", borderRight: '3px solid black', margin: 0 }}>
+                    <p className="small bold "><span className="inline" style={{ width: "auto" }}><span style={{ fontSize: "26px" }}>G</span>IF <span style={{ fontSize: "26px" }}>3</span></span></p>
+                  </Grid.Column>
+                  <Grid.Column style={{ display: "flex", alignItems: "center", justifyContent: "center", margin: 0 }}>
+                    <p className="small bold "><span className="inline" style={{ width: "auto" }}><span style={{ fontSize: "26px" }}>G</span>IF <span style={{ fontSize: "26px" }}>4</span></span></p>
+                  </Grid.Column>
+                </Grid.Row>
+              </Grid>
+            </Grid.Row>
+          </Grid>
+
+
+
+        </Grid.Row>
+
+        <Grid.Row centered>
+          <Grid.Column floated="right" width={3}>
+            <Image
+              src="/brand2.jpg"
+              className="ui centered medium image"
+            />
+          </Grid.Column>
+          <Grid.Column floated="right" width={10}>
+            <Image
+              src="/footer2.jpg"
+              className="ui centered medium image"
+            />
+          </Grid.Column>
+          <Grid.Column floated="right" width={3}>
+            <Image
+              src="/brand1.jpg"
+              className="ui centered medium image"
+            />
+          </Grid.Column>
+        </Grid.Row>
+
         <Grid.Row style={{ paddingBottom: "80px" }}>
           <Grid.Column style={{ display: "flex", alignItems: "center", justifyContent: "center" }} width={8}>
 
             <div style={{ textAlign: "center" }}>
-              <p className="small  close2top bold"><span className="big bold underline">You can also</span></p>
-              <p className="small  close2top bold"><span className="big bold yellow underline">Wholesale Purchase</span></p>
-              <p className="small  close2top bold"><span className="big bold yellow underline">Buy 1 container of 20 Dragons for $100.</span></p>
-              <p className="small  close2top bold"><span className="big bold yellow underline">Buy 2 or more containers of 20 Dragons for $80 each.</span></p>
+              <p className="small close2top"><span className="big bold underline">You can also</span></p>
+              <p className="small close2top"><span className="big bold yellow underline">Wholesale Purchase</span></p>
+              <p className="small close2top"><span className="big bold yellow underline">Buy 1 container of 20 Dragons for $100.</span></p>
+              <p className="small close2top"><span className="big bold yellow underline">Buy 2 or more containers of 20 Dragons for $80 each.</span></p>
               <Grid verticalAlign="middle" style={{ marginTop: '50px' }}>
                 <Grid.Row columns={2} >
                   <Grid.Column>
