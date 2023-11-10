@@ -206,3 +206,43 @@ blockquote cite:after {
   justify-content: center;
   align-items: center;
 }
+
+.responsive-text {
+  word-break:break-word;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+/* Set border collapse and size for the table */
+.custom-table.ui.table {
+  border-collapse: separate;
+  border-spacing: 3px 0;
+  border: 3px solid black; /* Add border around the edge of the table */
+}
+
+/* Set background color for the table cells */
+.custom-table.ui.table .video-container {
+  background-color: white;
+  padding: 16px; /* Change the padding as per your requirement */
+}
+
+/* Vertical line color */
+.custom-table.ui.table .video-container:not(:first-child) {
+  border-left: 3px solid black;
+}
+
+/* Horizontal border color and size */
+.custom-table.ui.table tr:not(:last-child) .video-container {
+  border-bottom: 3px solid black;
+}
+
+/* Update the background color for cells with yellow background */
+.custom-table.ui.table .video-container.yellow-background {
+  background-color: rgb(254,248,4);
+}
+
+
+
+
+
+

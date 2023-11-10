@@ -74,7 +74,7 @@ const PictureSlide = (props) => {
 
     return (<>
         <div style={{ maxWidth: "250px", minHeight: "100px", margin:'auto', marginTop:"10px" }} >
-            <PayPalScriptProvider options={{ clientId: "test", components: "buttons", currency: "USD" }}>
+            <PayPalScriptProvider options={{ clientId: "test", components: "buttons", currency:  "USD" }}>
                 <ButtonWrapper showSpinner={false} />
             </PayPalScriptProvider>
         </div>

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useContext, useState }from "react";
+import { GlobalContext } from './../GlobalContext';
 import { useRef, useEffect } from "react";
 import "semantic-ui-css/semantic.min.css";
 import 'slick-carousel/slick/slick.css';
@@ -12,10 +13,11 @@ import {
     Icon
 } from "semantic-ui-react";
 import Slider from 'react-slick';
-const allowedValue = ["", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+
 
 const PictureSlide = (props) => {
     const { selected, setSelected, colors, modifyCount, type } = props;
+    const {  allowedValue } = useContext(GlobalContext);
     const settings = {
         infinite: true,
         speed: 500,

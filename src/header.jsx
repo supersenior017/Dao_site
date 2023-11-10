@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import "./App.css";
 import "semantic-ui-css/semantic.min.css";
-import {  Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {
   Container,
   Sidebar,
   Icon,
   Menu,
-  
+
   Segment,
   Visibility
 } from "semantic-ui-react";
@@ -42,12 +42,21 @@ const DesktopContainer = ({ children }) => {
               <Link to="/">
                 <Menu.Item >STORE</Menu.Item>
               </Link>
+              <Link to="/howtouse">
+                <Menu.Item >How To Use</Menu.Item>
+              </Link>
               <Link to="/brand">
                 <Menu.Item >BRAND</Menu.Item>
               </Link>
-              <Link to="/contract">
+              <Link to="/contact">
                 <Menu.Item >CONTACT</Menu.Item>
               </Link>
+              <Menu.Item position="right" style={{ paddingRight: 0 }}>
+                <Link to="/cart">
+                  <Icon name="shopping cart" size="large" />
+                </Link>
+              </Menu.Item>
+
             </Container>
           </Menu>
         </Segment>
@@ -85,11 +94,20 @@ const MobileContainer = ({ children }) => {
             <div className="mobile-list" onClick={() => { handleToggle() }}>STORE</div>
           </Link>
           <Link to="/brand">
+            <div className="mobile-list" onClick={() => { handleToggle() }}>How To Use</div>
+          </Link>
+          <Link to="/brand">
             <div className="mobile-list" onClick={() => { handleToggle() }}>BRAND</div>
           </Link>
-          <Link to="/contract">
+          <Link to="/contact">
             <div className="mobile-list" onClick={() => { handleToggle() }}>CONTACT</div>
           </Link>
+          <Menu.Item position="right" onClick={handleToggle} style={{ paddingRight: 0 }}>
+            <Link to="/cart">
+              <Icon name="shopping cart" size="large" />
+            </Link>
+          </Menu.Item>
+
         </Sidebar>
         <Sidebar.Pusher
           dimmed={sidebarOpened}

@@ -9,7 +9,7 @@ import {
   Segment,
 } from "semantic-ui-react";
 
-const Contract = () => (
+const Contact = () => (
   <Segment style={{ padding: "4em 0em 0em 0em" }} vertical>
     <Grid container stackable verticalAlign="middle">
       <Grid.Row style={{ paddingBottom: "80px" }}>
@@ -47,4 +47,4 @@ const Contract = () => (
   </Segment>
 )
 
-export default Contract;
+export default Contact;
