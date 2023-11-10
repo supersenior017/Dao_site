@@ -43,7 +43,7 @@ const DesktopContainer = ({ children }) => {
                 <Menu.Item >STORE</Menu.Item>
               </Link>
               <Link to="/howtouse">
-                <Menu.Item >How To Use</Menu.Item>
+                <Menu.Item >HOW TO USE</Menu.Item>
               </Link>
               <Link to="/brand">
                 <Menu.Item >BRAND</Menu.Item>
@@ -94,7 +94,7 @@ const MobileContainer = ({ children }) => {
             <div className="mobile-list" onClick={() => { handleToggle() }}>STORE</div>
           </Link>
           <Link to="/brand">
-            <div className="mobile-list" onClick={() => { handleToggle() }}>How To Use</div>
+            <div className="mobile-list" onClick={() => { handleToggle() }}>HOW TO USE</div>
           </Link>
           <Link to="/brand">
             <div className="mobile-list" onClick={() => { handleToggle() }}>BRAND</div>
