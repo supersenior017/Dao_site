@@ -1,4 +1,4 @@
-import React, { useContext, useState }from "react";
+import React, { useContext, useState } from "react";
 import { GlobalContext } from './../GlobalContext';
 import { useRef, useEffect } from "react";
 import "semantic-ui-css/semantic.min.css";
@@ -15,9 +15,10 @@ import {
 import Slider from 'react-slick';
 
 
+
 const PictureSlide = (props) => {
-    const { selected, setSelected, colors, modifyCount, type } = props;
-    const {  allowedValue } = useContext(GlobalContext);
+    const { selected, setSelected, colors, type } = props;
+
     const settings = {
         infinite: true,
         speed: 500,
@@ -59,14 +60,7 @@ const PictureSlide = (props) => {
 
     const CustomizedPopup = ({ children, customKey, selected, setSelected }) => {
         const [inputValue, setInputValue] = useState(colors[customKey].count);
-
-        const countModify = (value) => {
-            let newColors = colors;
-            newColors[customKey].count = value;
-            modifyCount(newColors);
-            setInputValue(value);
-            setSelected({ ...selected, id: null })
-        }
+        const { setDragon, setTurtle, allowedValue, setWhole, whole } = useContext(GlobalContext);
 
         const popupRef = useRef();
 
@@ -145,7 +139,26 @@ const PictureSlide = (props) => {
                 </div>
             </Grid.Column>
             <Grid centered columns={1}>
-                <Button style={{ marginTop: "10px", width: '100px' }} animated='vertical' size='small' color='teal' onClick={() => { countModify(Number(inputValue)) }}>
+                <Button style={{ marginTop: "10px", width: '100px' }} animated='vertical' size='small' color='teal' onClick={() => {
+                    let newColors = colors;
+                    newColors[customKey].count = Number(inputValue);
+                    if (type == "DRAGON") {
+                        setDragon(newColors);
+                        setWhole([{
+                            ...whole[0],
+                            haha:Number(inputValue)
+                        }]);
+                    } else {
+                        setTurtle(newColors);
+                        setWhole([{
+                            ...whole[0],
+                            haha: Number(inputValue)
+                        }]);
+                    }
+                    setInputValue(Number(inputValue));
+                    setSelected({ ...selected, id: null });
+
+                }}>
                     <Button.Content hidden>Add to Cart</Button.Content>
                     <Button.Content visible>
                         <Icon name='shop' />

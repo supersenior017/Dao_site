@@ -6,7 +6,10 @@ export const GlobalContext = createContext({});
 
 // Step 2: Create a provider component
 export const GlobalProvider = ({ children }) => {
-    const colors = [{
+
+    const allowedValue = ["", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+
+    const [dragon, setDragon] = useState([{
         type: "single",
         color: "BLACK",
         extraColor: "",
@@ -89,9 +92,8 @@ export const GlobalProvider = ({ children }) => {
         extraColor: "",
         file: "/dragon/Yellow Dragon 8134.jpg",
         count: 0
-    },]
-
-    const colors1 = [{
+    },]);
+    const [turtle, setTurtle] = useState( [{
         type: "single",
         color: "BLACK",
         extraColor: "",
@@ -115,17 +117,13 @@ export const GlobalProvider = ({ children }) => {
         extraColor: "",
         file: "/turtle/Purple Turtle 8150.jpg",
         count: 0
-    },]
-
-    const allowedValue = ["", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
-
-    const [dragon, setDragon] = useState(colors);
-    const [turtle, setTurtle] = useState(colors1);
+    },]);
     const [inputValue, setInputValue] = useState(0);
     const [whole, setWhole] = useState([{
         type: "single",
         color: "", colorName: "20 DRAGONS",
         extraColor: "",
+        haha:0 ,
         file: "/wholesale.jpg",
         count: 0
     }]);
@@ -133,7 +131,7 @@ export const GlobalProvider = ({ children }) => {
     
 
     return (
-        <GlobalContext.Provider value={{ dragon, setDragon, turtle, setTurtle, whole, setWhole, colors, colors1, inputValue, setInputValue, allowedValue }}>
+        <GlobalContext.Provider value={{ dragon, setDragon, turtle, setTurtle, whole, setWhole,inputValue, setInputValue, allowedValue }}>
             {children}
         </GlobalContext.Provider>
     );

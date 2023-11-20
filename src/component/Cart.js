@@ -48,7 +48,11 @@ const PictureSlide = (props) => {
                                     if (inputValue >= 1 && allowedValue.includes(`${inputValue * 1 - 1}`)) {
                                         let temp = data;
                                         temp[customKey].count=inputValue * 1 - 1;
-                                        setData(temp)
+                                        setData(temp);
+                                        setWhole([{
+                                            ...whole[0],
+                                            haha: inputValue * 1 + 1
+                                          }]);
                                         setInputValue(`${inputValue * 1 - 1}`);
                                     }
                                 }}
@@ -72,6 +76,10 @@ const PictureSlide = (props) => {
                                         let temp = data;
                                         temp[customKey].count=inputValue * 1 + 1;
                                         setData(temp);
+                                        setWhole([{
+                                            ...whole[0],
+                                            haha: inputValue * 1 + 1
+                                          }]);
                                         setInputValue(`${inputValue * 1 + 1}`);
                                     }
                                 }}

@@ -1,37 +1,49 @@
-import React, { useContext }from "react";
+import React, { useContext } from "react";
 import { GlobalContext } from './GlobalContext';
 import "./App.css";
 import {
   Grid,
   Card,
   Message,
+  Segment
 } from "semantic-ui-react";
 import PayPal from "./component/PayPal";
 import Cart from "./component/Cart"
 
-
-
 const CartPage = () => {
-  
-  const {  dragon, setDragon,turtle, setTurtle ,whole, setWhole,setInputValue } = useContext(GlobalContext);
+
+  const { dragon, setDragon, turtle, setTurtle, whole, setWhole, setInputValue } = useContext(GlobalContext);
   const checkNoCart = () => {
     let sum = 0;
     for (const each of dragon) {
       sum += each.count;
-      console.log(each.count);
     }
     for (const each of turtle) {
       sum += each.count;
-      console.log(each.count);
     }
     sum += whole[0].count;
     console.log(sum);
     return sum === 0;
   }
+  const totalCost=()=>{
+    let total=0;
+    dragon.forEach(each=>{
+      total+=each.count*10;
+    })
+    turtle.forEach(each=>{
+      total+=each.count*5;
+    })
+    whole.forEach(each=>{
+      total+=each.count*100;
+    })
+    return total
+  }
   return (
-    <Grid container stackable verticalAlign="middle">
-      <Grid.Row centered style={{marginTop: "40px"}}>
-          <Message style={{ backgroundColor: 'white', width: "90%"}}>
+    <Segment style={{ padding: "8em 0em" }} vertical>
+      <Grid container stackable verticalAlign="middle">
+        <Grid.Row centered style={{ marginTop: "40px" }}>
+          {totalCost()}
+          <Message style={{ backgroundColor: 'white', width: "90%" }}>
             {
               checkNoCart() ? <Grid>
                 <Grid.Row centered >
@@ -71,7 +83,9 @@ const CartPage = () => {
 
           </Message>
         </Grid.Row>
-    </Grid>
+      </Grid>
+    </Segment>
+
   );
 };
 

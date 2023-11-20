@@ -41,8 +41,8 @@ const Store = () => {
           </Grid.Column>
         </Grid.Row>
         <Grid.Row centered>
-          <PictureSlide selected={selected} setSelected={setSelected} colors={dragon} modifyCount={setDragon} type="DRAGON" />
-          <PictureSlide selected={selected1} setSelected={setSelected1} colors={turtle} modifyCount={setTurtle} type="TURTLE" />
+          <PictureSlide selected={selected} setSelected={setSelected} colors={dragon} type="DRAGON" />
+          <PictureSlide selected={selected1} setSelected={setSelected1} colors={turtle} type="TURTLE" />
         </Grid.Row>
 
         <Grid.Row centered>

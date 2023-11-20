@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useContext, useState, useEffect, useRef } from "react";
+import { GlobalContext } from './GlobalContext';
 import "./App.css";
 import "semantic-ui-css/semantic.min.css";
 import { Link } from 'react-router-dom';
@@ -14,6 +15,23 @@ import {
 
 const DesktopContainer = ({ children }) => {
   const [fixed, setFixed] = useState(false);
+  const [number, setNumber] = useState(0);
+  const { dragon, setDragon, turtle, setTurtle, whole, setWhole } = useContext(GlobalContext);
+
+  useEffect(() => {
+    let temp = 0;
+    dragon.forEach(each => {
+      if (each.count > 0) temp++;
+    })
+    turtle.forEach(each => {
+      if (each.count > 0) temp++;
+    })
+    whole.forEach(each => {
+      if (each.count > 0) temp++;
+    })
+
+    setNumber(temp);
+  }, [dragon, turtle, whole]);
 
   const hideFixedMenu = () => {
     setFixed(false);
@@ -53,7 +71,11 @@ const DesktopContainer = ({ children }) => {
               </Link>
               <Menu.Item position="right" style={{ paddingRight: 0 }}>
                 <Link to="/cart">
-                  <Icon name="shopping cart" size="large" />
+                  <span className="avatar-container">
+                    <Icon name="shopping cart" size="large"
+                      className="avatar" />
+                  </span>
+                  <span className="badge">{number}</span>
                 </Link>
               </Menu.Item>
 
@@ -69,8 +91,13 @@ const DesktopContainer = ({ children }) => {
 
 const MobileContainer = ({ children }) => {
   const [sidebarOpened, setSidebarOpened] = useState(false);
+  const [height, setHeight] = useState(0);
+  const headerRef = useRef();
+  const [number, setNumber] = useState(0);
+  const { dragon, setDragon, turtle, setTurtle, whole, setWhole } = useContext(GlobalContext);
 
   const handlePusherClick = () => {
+    console.log('pusher')
     if (sidebarOpened) {
       setSidebarOpened(false);
     }
@@ -80,6 +107,25 @@ const MobileContainer = ({ children }) => {
     setSidebarOpened(!sidebarOpened);
   };
 
+  useEffect(() => {
+    let temp = 0;
+    dragon.forEach(each => {
+      if (each.count > 0) temp++;
+    })
+    turtle.forEach(each => {
+      if (each.count > 0) temp++;
+    })
+    whole.forEach(each => {
+      if (each.count > 0) temp++;
+    })
+
+    setNumber(temp);
+  }, [dragon, turtle, whole]);
+  useEffect(()=>{
+    
+    setHeight(headerRef.current.clientHeight)
+  }, [])
+  console.log(height)
   return (
     <div >
       <Sidebar.Pushable>
@@ -93,7 +139,7 @@ const MobileContainer = ({ children }) => {
           <Link to="/">
             <div className="mobile-list" onClick={() => { handleToggle() }}>STORE</div>
           </Link>
-          <Link to="/brand">
+          <Link to="/howtouse">
             <div className="mobile-list" onClick={() => { handleToggle() }}>HOW TO USE</div>
           </Link>
           <Link to="/brand">
@@ -102,33 +148,41 @@ const MobileContainer = ({ children }) => {
           <Link to="/contact">
             <div className="mobile-list" onClick={() => { handleToggle() }}>CONTACT</div>
           </Link>
-          <Menu.Item position="right" onClick={handleToggle} style={{ paddingRight: 0 }}>
-            <Link to="/cart">
-              <Icon name="shopping cart" size="large" />
-            </Link>
-          </Menu.Item>
 
         </Sidebar>
         <Sidebar.Pusher
+          
           dimmed={sidebarOpened}
           onClick={handlePusherClick}
-          style={{ minHeight: "100vh" }}
+          style={{ width: "100%"}}
         >
-          <Segment inverted textAlign="center" vertical className="sticky" >
+          <div ref={headerRef}>
+          <Segment inverted textAlign="center" vertical>
             <Container>
-              <Menu inverted pointing secondary size="large">
+              <Menu inverted pointing secondary  >
                 <Menu.Item onClick={handleToggle}>
                   <Icon name="sidebar" />
+                </Menu.Item>
+                <Menu.Item position="right" style={{ paddingRight: 0 }}>
+                  <Link to="/cart">
+                    <span className="avatar-container">
+                      <Icon name="shopping cart" size="large"
+                        className="avatar" />
+                    </span>
+                    <span className="badge">{number}</span>
+                  </Link>
                 </Menu.Item>
               </Menu>
             </Container>
           </Segment>
-          {children}
+          </div>
+          <div style={{height:`calc(100vh - ${height}px)`, overflow: 'auto'}}>
+            {children}
+          </div>
+
         </Sidebar.Pusher>
       </Sidebar.Pushable>
     </div>
   );
 }
-
-
 export { DesktopContainer, MobileContainer };
