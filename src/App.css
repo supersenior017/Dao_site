@@ -53,6 +53,52 @@ blockquote cite:after {
   font-size: 20px;
 }
 
+.small1 {
+  font-size: 20px;
+}
+
+.cap{
+  font-size: 26px;
+}
+
+@media (max-width: 1000px) {
+  .small1 {
+    font-size: 16px;
+  }
+  .cap{
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 770px) {
+  .small1 {
+    font-size: 14px;
+  }
+  .cap{
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 650px) {
+  .small1 {
+    font-size: 12px;
+  }
+  .cap{
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 470px) {
+  .small1 {
+    font-size: 10px;
+  }
+  .cap{
+    font-size: 12px;
+  }
+}
+
+
+
 .big{
   font-size: 28px;
 }

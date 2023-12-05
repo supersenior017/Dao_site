@@ -15,7 +15,7 @@ import { useMediaQuery } from 'react-responsive';
 
 const Pages = ({ children }) => {
   const isMobile = useMediaQuery({ query: '(max-width: 800px)' });
-  if (isMobile) {
+    if (isMobile) {
     return <MobileContainer>{children}</MobileContainer>
   } else {
     return <DesktopContainer>{children}</DesktopContainer>
