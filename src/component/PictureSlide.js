@@ -18,6 +18,8 @@ import Slider from 'react-slick';
 
 const PictureSlide = (props) => {
     const { selected, setSelected, colors, type } = props;
+    const [currentSlide, setCurrentSlide] = useState(0); // Added state for tracking the current slide index
+    const sliderRef = useRef(); // Added a ref for the slider component
 
     const settings = {
         infinite: true,
@@ -25,7 +27,10 @@ const PictureSlide = (props) => {
         autoplay: true,
         autoplaySpeed: 2000,
         slidesToShow: 1,
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        initialSlide: currentSlide, // Add this setting to initialize the slider on the selected index
+        beforeChange: (current, next) => setCurrentSlide(next), // Update the currentSlide when the slide changes
+    
     };
 
     const colorClick = (whichSelect, whichSetSelect, each, key) => {
@@ -34,6 +39,9 @@ const PictureSlide = (props) => {
         } else {
             whichSetSelect({ content: each, id: key })
         }
+        if (sliderRef.current) {
+            sliderRef.current.slickGoTo(key); // Go to the slide of the selected color immediately when clicked
+          }
     }
 
     const pictureDes = (pic) =>
@@ -180,6 +188,7 @@ const PictureSlide = (props) => {
                     {pictureDes(selected.content)}
                 </> :
                 <Slider
+                ref={sliderRef} // Add the ref to the Slider component
                     {...settings}
                     style={{ width: "100%" }}
                 >

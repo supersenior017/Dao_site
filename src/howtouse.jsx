@@ -88,13 +88,13 @@ const Howtouse = () => {
               <Table.Row>
                 <Table.Cell className="video-container">
                   <div className="aspect-ratio-16-9">
-                    <video controls>
+                    <video controls playsinline preload="auto">
                       <source src={`/1.mp4`} type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
                   </div>
                 </Table.Cell>
-              </Table.Row>
+              </Table.Row> 
               <Table.Row>
                 <Table.Cell className="video-container yellow-background">
                   <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
