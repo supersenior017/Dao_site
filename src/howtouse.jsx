@@ -41,7 +41,7 @@ const Howtouse = () => {
         </Grid.Row>
 
         <Grid.Row centered>
-          <div className="yellow" style={{ display: "flex", border: "3px solid black", width: "100%", justifyContent: "space-between", paddingLeft: isMobile3 ? "10px" :isMobile2 ? "20px" : isMobile1?"50px":"100px", paddingRight:isMobile3 ? "10px" :isMobile2 ? "20px" : isMobile1 ?"50px": "100px", margin: "10px" }}>
+          <div className="yellow" style={{ display: "flex", border: "3px solid black", width: "100%", justifyContent: "space-between", paddingLeft: isMobile3 ? "10px" : isMobile2 ? "20px" : isMobile1 ? "50px" : "100px", paddingRight: isMobile3 ? "10px" : isMobile2 ? "20px" : isMobile1 ? "50px" : "100px", margin: "10px" }}>
             <Grid.Column width={6} style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
               <p className={`small1 bold `}><span className="inline" style={{ width: "auto" }}><span className="cap">~ C</span>ONTROL <span className="cap">Y</span>OUR <span className="cap">B</span>URN <span className="cap">~</span></span></p>
 
@@ -59,10 +59,10 @@ const Howtouse = () => {
 
             </Grid.Column>
             <Grid.Column width={12} style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: "30px", marginBottom: "30px" }}>
-              {isMobile4 ? 
-              <p className="small1 bold responsive-text"><span className="inline" style={{ width: "auto" }}><span className="cap">~&nbsp;</span><span className="underline"><span className="cap">D</span>AMPER <span className="cap">T</span>OOL</span><span className="cap">&nbsp;~&nbsp;</span><span className="underline"><span className="cap">L</span>IGHTER <span className="cap">C</span>ADDY</span><span className="cap">&nbsp;~&nbsp;</span><span className="underline"><span className="cap">M</span>AX <span className="cap">H</span>IT <span className="cap">C</span>ARB <span className="cap">C</span>AP</span><span className="cap">&nbsp;~</span></span></p>
-              :
-              <p className="small1 bold responsive-text"><span className="inline" style={{ width: "auto" }}><span className="cap">~&nbsp;&nbsp;&nbsp;&nbsp;</span><span className="underline"><span className="cap">D</span>AMPER <span className="cap">T</span>OOL</span><span className="cap">&nbsp;&nbsp;&nbsp;&nbsp;~&nbsp;&nbsp;&nbsp;&nbsp;</span><span className="underline"><span className="cap">L</span>IGHTER <span className="cap">C</span>ADDY</span><span className="cap">&nbsp;&nbsp;&nbsp;&nbsp;~&nbsp;&nbsp;&nbsp;&nbsp;</span><span className="underline"><span className="cap">M</span>AX <span className="cap">H</span>IT <span className="cap">C</span>ARB <span className="cap">C</span>AP</span><span className="cap">&nbsp;&nbsp;&nbsp;&nbsp;~</span></span></p>
+              {isMobile4 ?
+                <p className="small1 bold responsive-text"><span className="inline" style={{ width: "auto" }}><span className="cap">~&nbsp;</span><span className="underline"><span className="cap">D</span>AMPER <span className="cap">T</span>OOL</span><span className="cap">&nbsp;~&nbsp;</span><span className="underline"><span className="cap">L</span>IGHTER <span className="cap">C</span>ADDY</span><span className="cap">&nbsp;~&nbsp;</span><span className="underline"><span className="cap">M</span>AX <span className="cap">H</span>IT <span className="cap">C</span>ARB <span className="cap">C</span>AP</span><span className="cap">&nbsp;~</span></span></p>
+                :
+                <p className="small1 bold responsive-text"><span className="inline" style={{ width: "auto" }}><span className="cap">~&nbsp;&nbsp;&nbsp;&nbsp;</span><span className="underline"><span className="cap">D</span>AMPER <span className="cap">T</span>OOL</span><span className="cap">&nbsp;&nbsp;&nbsp;&nbsp;~&nbsp;&nbsp;&nbsp;&nbsp;</span><span className="underline"><span className="cap">L</span>IGHTER <span className="cap">C</span>ADDY</span><span className="cap">&nbsp;&nbsp;&nbsp;&nbsp;~&nbsp;&nbsp;&nbsp;&nbsp;</span><span className="underline"><span className="cap">M</span>AX <span className="cap">H</span>IT <span className="cap">C</span>ARB <span className="cap">C</span>AP</span><span className="cap">&nbsp;&nbsp;&nbsp;&nbsp;~</span></span></p>
               }
             </Grid.Column>
             <Grid.Column width={12} style={{ display: "flex", alignItems: "center", justifyContent: "center", marginTop: "30px" }}>
@@ -72,7 +72,7 @@ const Howtouse = () => {
         </Grid.Row>
 
         <Grid.Row centered>
-          <div className="yellow" style={{ display: "flex", border: "3px solid black", width: "100%", justifyContent: "space-between", paddingLeft: isMobile3 ? "10px" :isMobile2 ? "20px" : isMobile1?"50px":"100px", paddingRight:isMobile3 ? "10px" :isMobile2 ? "20px" : isMobile1 ?"50px": "100px", margin: "10px" }}>
+          <div className="yellow" style={{ display: "flex", border: "3px solid black", width: "100%", justifyContent: "space-between", paddingLeft: isMobile3 ? "10px" : isMobile2 ? "20px" : isMobile1 ? "50px" : "100px", paddingRight: isMobile3 ? "10px" : isMobile2 ? "20px" : isMobile1 ? "50px" : "100px", margin: "10px" }}>
             <Grid.Column width={6} style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
               <p className="small1 bold "><span className="inline" style={{ width: "auto" }}><span className="cap">~ W</span>HICH <span className="cap">T</span>OOLS <span className="cap">F</span>IT <span className="cap">Y</span>OU<span className="cap">? ~</span></span></p>
 
@@ -89,12 +89,13 @@ const Howtouse = () => {
                 <Table.Cell className="video-container">
                   <div className="aspect-ratio-16-9">
                     <video controls playsinline preload="auto">
+                      <source src="/1.webm" type="video/webm" />
                       <source src={`/1.mp4`} type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
                   </div>
                 </Table.Cell>
-              </Table.Row> 
+              </Table.Row>
               <Table.Row>
                 <Table.Cell className="video-container yellow-background">
                   <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -105,7 +106,8 @@ const Howtouse = () => {
               <Table.Row>
                 <Table.Cell className="video-container">
                   <div className="aspect-ratio-16-9">
-                    <video controls>
+                    <video controls playsinline preload="auto">
+                      <source src="/2.webm" type="video/webm" />
                       <source src={`/2.mp4`} type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
@@ -122,7 +124,8 @@ const Howtouse = () => {
               <Table.Row>
                 <Table.Cell className="video-container">
                   <div className="aspect-ratio-16-9">
-                    <video controls>
+                    <video controls playsinline preload="auto">
+                      <source src="/3.webm" type="video/webm" />
                       <source src={`/3.mp4`} type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
@@ -139,7 +142,8 @@ const Howtouse = () => {
               <Table.Row>
                 <Table.Cell className="video-container">
                   <div className="aspect-ratio-16-9">
-                    <video controls>
+                    <video controls playsinline preload="auto">
+                      <source src="/4.webm" type="video/webm" />
                       <source src={`/4.mp4`} type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
@@ -166,7 +170,8 @@ const Howtouse = () => {
               <Table.Row>
                 <Table.Cell className="video-container">
                   <div className="aspect-ratio-16-9">
-                    <video controls>
+                    <video controls playsinline preload="auto">
+                      <source src="/5.webm" type="video/webm" />
                       <source src={`/5.mp4`} type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
@@ -183,7 +188,8 @@ const Howtouse = () => {
               <Table.Row>
                 <Table.Cell className="video-container">
                   <div className="aspect-ratio-16-9">
-                    <video controls>
+                    <video controls playsinline preload="auto">
+                      <source src="/6.webm" type="video/webm" />
                       <source src={`/6.mp4`} type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
@@ -200,7 +206,8 @@ const Howtouse = () => {
               <Table.Row>
                 <Table.Cell className="video-container">
                   <div className="aspect-ratio-16-9">
-                    <video controls>
+                    <video controls playsinline preload="auto">
+                      <source src="/7.webm" type="video/webm" />
                       <source src={`/7.mp4`} type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
@@ -217,7 +224,8 @@ const Howtouse = () => {
               <Table.Row>
                 <Table.Cell className="video-container">
                   <div className="aspect-ratio-16-9">
-                    <video controls>
+                    <video controls playsinline preload="auto">
+                      <source src="/8.webm" type="video/webm" />
                       <source src={`/8.mp4`} type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
