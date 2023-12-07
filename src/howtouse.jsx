@@ -88,7 +88,7 @@ const Howtouse = () => {
               <Table.Row>
                 <Table.Cell className="video-container">
                   <div className="aspect-ratio-16-9">
-                    <video controls playsinline preload="auto">
+                    <video controls playsInline preload="auto">
                       <source src="/1.webm" type="video/webm" />
                       <source src={`/1.mp4`} type="video/mp4" />
                       Your browser does not support the video tag.
@@ -106,7 +106,7 @@ const Howtouse = () => {
               <Table.Row>
                 <Table.Cell className="video-container">
                   <div className="aspect-ratio-16-9">
-                    <video controls playsinline preload="auto">
+                    <video controls playsInline preload="auto">
                       <source src="/2.webm" type="video/webm" />
                       <source src={`/2.mp4`} type="video/mp4" />
                       Your browser does not support the video tag.
@@ -124,7 +124,7 @@ const Howtouse = () => {
               <Table.Row>
                 <Table.Cell className="video-container">
                   <div className="aspect-ratio-16-9">
-                    <video controls playsinline preload="auto">
+                    <video controls playsInline preload="auto">
                       <source src="/3.webm" type="video/webm" />
                       <source src={`/3.mp4`} type="video/mp4" />
                       Your browser does not support the video tag.
@@ -142,7 +142,7 @@ const Howtouse = () => {
               <Table.Row>
                 <Table.Cell className="video-container">
                   <div className="aspect-ratio-16-9">
-                    <video controls playsinline preload="auto">
+                    <video controls playsInline preload="auto">
                       <source src="/4.webm" type="video/webm" />
                       <source src={`/4.mp4`} type="video/mp4" />
                       Your browser does not support the video tag.
@@ -170,7 +170,7 @@ const Howtouse = () => {
               <Table.Row>
                 <Table.Cell className="video-container">
                   <div className="aspect-ratio-16-9">
-                    <video controls playsinline preload="auto">
+                    <video controls playsInline preload="auto">
                       <source src="/5.webm" type="video/webm" />
                       <source src={`/5.mp4`} type="video/mp4" />
                       Your browser does not support the video tag.
@@ -188,7 +188,7 @@ const Howtouse = () => {
               <Table.Row>
                 <Table.Cell className="video-container">
                   <div className="aspect-ratio-16-9">
-                    <video controls playsinline preload="auto">
+                    <video controls playsInline preload="auto">
                       <source src="/6.webm" type="video/webm" />
                       <source src={`/6.mp4`} type="video/mp4" />
                       Your browser does not support the video tag.
@@ -206,7 +206,7 @@ const Howtouse = () => {
               <Table.Row>
                 <Table.Cell className="video-container">
                   <div className="aspect-ratio-16-9">
-                    <video controls playsinline preload="auto">
+                    <video controls playsInline preload="auto">
                       <source src="/7.webm" type="video/webm" />
                       <source src={`/7.mp4`} type="video/mp4" />
                       Your browser does not support the video tag.
@@ -224,7 +224,7 @@ const Howtouse = () => {
               <Table.Row>
                 <Table.Cell className="video-container">
                   <div className="aspect-ratio-16-9">
-                    <video controls playsinline preload="auto">
+                    <video controls playsInline preload="auto">
                       <source src="/8.webm" type="video/webm" />
                       <source src={`/8.mp4`} type="video/mp4" />
                       Your browser does not support the video tag.
