@@ -24,25 +24,29 @@ const PictureSlide = (props) => {
     const settings = {
         infinite: true,
         speed: 500,
-        autoplay: true,
-        autoplaySpeed: 2000,
         slidesToShow: 1,
         slidesToScroll: 1,
-        initialSlide: currentSlide, // Add this setting to initialize the slider on the selected index
-        beforeChange: (current, next) => setCurrentSlide(next), // Update the currentSlide when the slide changes
-    
-    };
+        afterChange: current => setCurrentSlide(current), // Keep track of the current slide
+        autoplay: true, // Enable autoplay
+        autoplaySpeed: 3000, // 3 seconds per slide, adjust as needed
+        initialSlide: currentSlide // Start the slider from the `currentSlide`
+      };
 
     const colorClick = (whichSelect, whichSetSelect, each, key) => {
-        if (whichSelect.id === key) {
-            whichSetSelect({ ...whichSelect, id: null })
+        if (whichSelect.id !== key) {
+            whichSetSelect({ content: each, id: key });
+            setCurrentSlide(key); // Update currentSlide state to the selected color's key
+    
+            if (sliderRef.current) {
+                sliderRef.current.slickGoTo(key); // Go to the slide of the selected color
+            }
         } else {
-            whichSetSelect({ content: each, id: key })
+            whichSetSelect({ ...whichSelect, id: null });
+            // No need to reset the slide here as we want to continue from the selected color
         }
-        if (sliderRef.current) {
-            sliderRef.current.slickGoTo(key); // Go to the slide of the selected color immediately when clicked
-          }
     }
+    
+
 
     const pictureDes = (pic) =>
         <div style={{ textAlign: 'center', border: "none" }}>
@@ -154,7 +158,7 @@ const PictureSlide = (props) => {
                         setDragon(newColors);
                         setWhole([{
                             ...whole[0],
-                            haha:Number(inputValue)
+                            haha: Number(inputValue)
                         }]);
                     } else {
                         setTurtle(newColors);
@@ -188,7 +192,7 @@ const PictureSlide = (props) => {
                     {pictureDes(selected.content)}
                 </> :
                 <Slider
-                ref={sliderRef} // Add the ref to the Slider component
+                    ref={sliderRef} // Add the ref to the Slider component
                     {...settings}
                     style={{ width: "100%" }}
                 >

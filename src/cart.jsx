@@ -63,7 +63,7 @@ const CartPage = () => {
     }
 
     if (whole_count >= 2){
-      discount = discount + whole_count * 100;
+      discount = discount + whole_count * 80;
     }
 
     discount = discount + dragon_count * 10;
