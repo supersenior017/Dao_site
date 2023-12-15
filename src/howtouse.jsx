@@ -90,7 +90,7 @@ const Howtouse = () => {
                   <div className="aspect-ratio-16-9">
                     <video controls playsInline preload="auto">
                       {/* <source src="/1.webm" type="video/webm" /> */}
-                      <source src={`/out_1.mp4`} type="video/mp4" />
+                      <source src={`/1.mp4`} type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
                   </div>
@@ -108,7 +108,7 @@ const Howtouse = () => {
                   <div className="aspect-ratio-16-9">
                     <video controls playsInline preload="auto">
                       {/* <source src="/2.webm" type="video/webm" /> */}
-                      <source src={`/out_2.mp4`} type="video/mp4" />
+                      <source src={`/2.mp4`} type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
                   </div>
@@ -126,7 +126,7 @@ const Howtouse = () => {
                   <div className="aspect-ratio-16-9">
                     <video controls playsInline preload="auto">
                       {/* <source src="/3.webm" type="video/webm" /> */}
-                      <source src={`/out_3.mp4`} type="video/mp4" />
+                      <source src={`/3.mp4`} type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
                   </div>
@@ -144,7 +144,7 @@ const Howtouse = () => {
                   <div className="aspect-ratio-16-9">
                     <video controls playsInline preload="auto">
                       {/* <source src="/4.webm" type="video/webm" /> */}
-                      <source src={`/out_4.mp4`} type="video/mp4" />
+                      <source src={`/4.mp4`} type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
                   </div>
@@ -172,7 +172,7 @@ const Howtouse = () => {
                   <div className="aspect-ratio-16-9">
                     <video controls playsInline preload="auto">
                       {/* <source src="/5.webm" type="video/webm" /> */}
-                      <source src={`/out_5.mp4`} type="video/mp4" />
+                      <source src={`/5.mp4`} type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
                   </div>
@@ -190,7 +190,7 @@ const Howtouse = () => {
                   <div className="aspect-ratio-16-9">
                     <video controls playsInline preload="auto">
                       {/* <source src="/6.webm" type="video/webm" /> */}
-                      <source src={`/out_6.mp4`} type="video/mp4" />
+                      <source src={`/6.mp4`} type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
                   </div>
@@ -208,7 +208,7 @@ const Howtouse = () => {
                   <div className="aspect-ratio-16-9">
                     <video controls playsInline preload="auto">
                       {/* <source src="/7.webm" type="video/webm" /> */}
-                      <source src={`/out_7.mp4`} type="video/mp4" />
+                      <source src={`/7.mp4`} type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
                   </div>
@@ -226,7 +226,7 @@ const Howtouse = () => {
                   <div className="aspect-ratio-16-9">
                     <video controls playsInline preload="auto">
                       {/* <source src="/8.webm" type="video/webm" /> */}
-                      <source src={`/out_8.mp4`} type="video/mp4" />
+                      <source src={`/8.mp4`} type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
                   </div>
