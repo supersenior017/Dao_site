@@ -21,15 +21,33 @@ const PictureSlide = (props) => {
     const [currentSlide, setCurrentSlide] = useState(0); // Added state for tracking the current slide index
     const sliderRef = useRef(); // Added a ref for the slider component
 
+    const autoPlaySpeed = 3000; // Define autoplay speed here for reusability
+
+    // State to manage if the autoplay should be paused/resumed
+    const [isAutoplayPaused, setIsAutoplayPaused] = useState(false);
+
+    // Effect to handle autoplay resume with delay
+    useEffect(() => {
+        let timer;
+        // If the autoplay is paused, set a timer to resume it
+        if (isAutoplayPaused && sliderRef.current) {
+            timer = setTimeout(() => {
+                sliderRef.current.slickPlay();
+                setIsAutoplayPaused(false);
+            }, 60000); // Resume after 10 seconds
+        }
+        return () => clearTimeout(timer); // Clear the timer on effect cleanup
+    }, [isAutoplayPaused]);
+
     const settings = {
         infinite: true,
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        afterChange: current => setCurrentSlide(current), // Keep track of the current slide
-        autoplay: true, // Enable autoplay
-        autoplaySpeed: 3000, // 3 seconds per slide, adjust as needed
-        initialSlide: currentSlide // Start the slider from the `currentSlide`
+        afterChange: current => setCurrentSlide(current),
+        autoplay: !isAutoplayPaused, // Control autoplay based on state
+        autoplaySpeed: autoPlaySpeed,
+        initialSlide: currentSlide,
       };
 
     const colorClick = (whichSelect, whichSetSelect, each, key) => {
@@ -76,6 +94,11 @@ const PictureSlide = (props) => {
 
         const popupRef = useRef();
 
+        const onCloseClick = () => {
+            setSelected({ ...selected, id: null }); // Close the popup
+            setIsAutoplayPaused(true); // Pause autoplay
+        };
+
 
         // Hook for adding event listeners on mount and cleaning up on unmount
         useEffect(() => {
@@ -107,9 +130,7 @@ const PictureSlide = (props) => {
             <div >
                 <span
                     style={{ float: "right", cursor: "pointer" }}
-                    onClick={() => {
-                        setSelected({ ...selected, id: null })
-                    }}
+                    onClick={onCloseClick}
                 >
                     Χ
                 </span>
