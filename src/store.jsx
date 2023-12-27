@@ -102,12 +102,12 @@ const Store = () => {
                   <Grid.Column>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                       <button
-                        class="ui icon button"
+                        className="ui icon button"
                         style={{ height: "40px" }}
                         onClick={() => inputValue >= 1 && allowedValue.includes(`${inputValue * 1 - 1}`) && setInputValue(`${inputValue * 1 - 1}`)}
                         disabled={inputValue <= 0}
                       >
-                        <i class={inputValue >= 2 ? "minus icon" : "trash icon"}></i>
+                        <i className={inputValue >= 2 ? "minus icon" : "trash icon"}></i>
                       </button>
                       <Input
                         style={{ width: "90px", height: "40px", fontSize: "20px", marginLeft: "-3px" }}
@@ -124,12 +124,12 @@ const Store = () => {
                         placeholder="Required Number"
                       />
                       <button
-                        class="ui icon button"
+                        className="ui icon button"
                         style={{ height: "40px" }}
                         onClick={() => allowedValue.includes(`${inputValue * 1 + 1}`) && setInputValue(`${inputValue * 1 + 1}`)}
                         disabled={inputValue >= 10}
                       >
-                        <i class="plus icon"></i>
+                        <i className="plus icon"></i>
                       </button>
                     </div>
                   </Grid.Column>
