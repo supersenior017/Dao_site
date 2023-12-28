@@ -54,17 +54,19 @@ const CartPage = () => {
       whole_count+=each.count;
     })
 
-    if (dragon_count >= 2){
+    if (dragon_count >= 2 && turtle_count >= 1){
       turtle_count = turtle_count -1;
     }
 
     if (turtle_count >= 3){
       discount = discount + turtle_count * 4;
     }
+    else discount = discount + turtle_count * 5;
 
     if (whole_count >= 2){
       discount = discount + whole_count * 80;
     }
+    else discount = discount + whole_count * 100;
 
     discount = discount + dragon_count * 10;
     
@@ -113,7 +115,7 @@ const CartPage = () => {
                     setTurtle(clone)
                   }} />
                 </Card.Group>
-                <PayPal />
+                <PayPal amount={totaldiscount()}/>
               </Grid.Row>
             }
 

@@ -126,6 +126,7 @@ const PictureSlide = (props) => {
             trigger={children}
             open={customKey === selected.id}
             style={{ height: '120px' }}
+            position="bottom left"
         >
             <div >
                 <span
@@ -234,9 +235,8 @@ const PictureSlide = (props) => {
 
                 if (each.type === "single") {
                     return (
-                        <CustomizedPopup customKey={key} selected={selected} setSelected={setSelected}>
+                        <CustomizedPopup key={key} customKey={key} selected={selected} setSelected={setSelected}>
                             <div
-                                key={key}
                                 className={`color-picker ${isSelected}`}
                                 style={{ backgroundColor: each.color }}
                                 onClick={() => { colorClick(selected, setSelected, each, key); }}
@@ -245,9 +245,8 @@ const PictureSlide = (props) => {
                     )
                 } else if (each.type === "double") {
                     return (
-                        <CustomizedPopup customKey={key} selected={selected} setSelected={setSelected}>
+                        <CustomizedPopup  key={key} customKey={key} selected={selected} setSelected={setSelected}>
                             <div
-                                key={key}
                                 className={`span-container color-picker ${isSelected}`}
                                 onClick={() => { colorClick(selected, setSelected, each, key); }}
                             >
