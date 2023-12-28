@@ -9,7 +9,7 @@ const base = "https://api-m.sandbox.paypal.com";
 const app = express();
 
 // host static files
-app.use(express.static("client/dist"));
+app.use(express.static("build"));
 
 // parse post params sent in body in json format
 app.use(express.json());
@@ -50,6 +50,7 @@ const createOrder = async (cart, amount) => {
   console.log(
     "shopping cart information passed from the frontend createOrder() callback:",
     cart,
+    amount
   );
 
   const accessToken = await generateAccessToken();
